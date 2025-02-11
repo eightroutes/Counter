@@ -32,4 +32,65 @@
   minusButton.isEnabled = count > -10
   plusButton.isEnabled = count < 10
   ```
+- 기존 코드
+
+  ```
+  
+    import UIKit
+    
+    class ViewController: UIViewController {
+    
+        @IBOutlet weak var numberText: UILabel!
+        @IBOutlet weak var resetBtn: UIButton!
+        var currentNum = 0
+        
+        @IBOutlet weak var plusBtn: UIButton!
+        @IBOutlet weak var minusBtn: UIButton!
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            // Do any additional setup after loading the view.
+        }
+        
+        
+        @IBAction func plusBtnClicked(_ sender: Any) {
+            currentNum += 1
+            numberText.text = String(currentNum)
+            if currentNum == 10 {
+                plusBtn.isEnabled = false
+            }
+            
+            if currentNum != -10 {
+                minusBtn.isEnabled = true
+            }
+    
+        }
+        
+    
+        @IBAction func minusBtnClicked(_ sender: Any) {
+            currentNum -= 1
+            numberText.text = String(currentNum)
+            if currentNum != 10 {
+                plusBtn.isEnabled = true
+            }
+            
+            if currentNum == -10 {
+                minusBtn.isEnabled = false
+            }
+            
+        }
+        
+        @IBAction func resetBtnClicked(_ sender: Any) {
+            currentNum = 0
+            numberText.text = String(currentNum)
+            
+            plusBtn.isEnabled = true
+            minusBtn.isEnabled = true
+        }
+        
+    }
+
+  ```
+
+
 
